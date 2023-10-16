@@ -6,7 +6,7 @@ const dataNum = data[0].data.num_comments;
 
 const ContentBox = () => {
     return (
-        <div className="contentbox">
+        <div>
             <p>{dataNum}</p>
         </div>
     )
