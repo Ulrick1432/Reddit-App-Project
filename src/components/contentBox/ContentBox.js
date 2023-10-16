@@ -1,13 +1,23 @@
 import React from "react";
-import data from "../../api/fakeApi.mjs";
+import "./contentBox.css"
 
-console.log(data);
-const dataNum = data[0].data.num_comments;
-
-const ContentBox = () => {
+const ContentBox = ({ subreddit, title, NumUPS, CommNum}) => {
     return (
-        <div>
-            <p>{dataNum}</p>
+        <div className="contentBox">
+            <h3>{subreddit}</h3>
+            <div className="contentBoxHeaderAndFooter">
+                <div className="like">
+                    <p>▲</p>
+                    <p>{NumUPS}</p>
+                    <p>▼</p>
+                </div>
+                <h2>{title}</h2>
+            </div>
+            <h1>Content img or video</h1>
+            <div className="contentBoxHeaderAndFooter">
+                <p>subreddit</p>
+                <p>{CommNum}</p>
+            </div>
         </div>
     )
 }

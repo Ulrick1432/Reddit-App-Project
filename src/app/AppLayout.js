@@ -1,5 +1,5 @@
 import React from "react";
-import ContentBox from "../components/contentBox/ContentBox.js";
+import ContentBoxes from "../components/contentBox/ContentBoxes.js";
 import "./appLayout.css";
 import Header from "../components/header/Header.js";
 export default function AppLayout() {
@@ -7,7 +7,7 @@ export default function AppLayout() {
         <div>
             <Header />
             <div className="divContent">
-                <ContentBox />
+                <ContentBoxes/>
             </div>
 
         </div>
