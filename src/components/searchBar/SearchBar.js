@@ -1,1 +1,1 @@
-// Ikke sikkert at jeg behøver en search 
+// Users can search the data using terms -> dvs. redux eller en lokal state (find ud af hvad der giver bedst mening) så jeg kan fetch/request på baggrund af det. 

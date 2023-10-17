@@ -1,3 +1,4 @@
+//This is the structure of a contentBox
 import React from "react";
 import "./contentBox.css"
 

@@ -1,3 +1,4 @@
+//This file is primary used for routing
 import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import AppLayout from "./AppLayout.js";

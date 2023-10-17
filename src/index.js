@@ -1,15 +1,16 @@
+//This file is the Root of the app
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './app/App.js';
 import reportWebVitals from './reportWebVitals.js';
-import store from './app/store.js';
+import store from './app/store.js'; //"store is not a named variable in the file"
 import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store}> {/*takes the Redux store as a prop and makes it available to the entire React application through the context API.*/}
       <App />
     </Provider>
   </React.StrictMode>
