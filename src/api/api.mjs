@@ -8,12 +8,15 @@ export const searchReddit = (query) => {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return response.json();
+      })
+      .then((data) => {
+        return data.data.children;
       });
   };
-
+  
   /*searchReddit('cake%20recipes')
   .then(result => {
-    console.log(result.data.children[0]);
+    console.log(result[0]);
   })
   .catch(error => {
     console.error(error);
@@ -21,21 +24,21 @@ export const searchReddit = (query) => {
 
 export const initialReddit = () => {
     return fetch(`https://www.reddit.com/r/popular.json`)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((data) => {
-            return data.data.children;
-        });
+      .then((response) => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then((data) => {
+          return data.data.children;
+      });
 };
 
-initialReddit()
+/*initialReddit()
 .then(result => {
     console.log(result[0])
 })
 .catch(error => {
     console.error(error);
-});
+});*/
