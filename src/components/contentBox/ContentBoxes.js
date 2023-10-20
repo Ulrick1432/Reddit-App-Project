@@ -10,6 +10,7 @@ const ContentBoxes = () => {
     const location = useLocation();//This object represents the current URL location
     const searchQuery = new URLSearchParams(location.search).get('q');//access the query parameters in the URL
     const searchResults = useSelector((state) => state.searchResults);
+    const selectedSort = useSelector((state) => state.headerSort);
     const [initialRedditData, setInitialRedditData] = useState([]);
     useEffect(() => {
         initialReddit()
@@ -22,7 +23,7 @@ const ContentBoxes = () => {
     }, []);
 
     const dataSource = searchResults.length > 0 ? searchResults : initialRedditData;
-    
+
     return (
         <div className="contentBoxes">
             {dataSource.map((element, index) => ( //.map will look at all the elements and return the value that is requested in the contentbox for that index.
@@ -32,7 +33,6 @@ const ContentBoxes = () => {
                     title={element.data.title}
                     NumUPS={element.data.ups}
                     CommNum={element.data.num_comments}
-                    
                 />
             ))}
         </div>
