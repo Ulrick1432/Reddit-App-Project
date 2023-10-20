@@ -33,6 +33,7 @@ const ContentBoxes = () => {
                     title={element.data.title}
                     NumUPS={element.data.ups}
                     CommNum={element.data.num_comments}
+                    contentData={element.data}
                 />
             ))}
         </div>
