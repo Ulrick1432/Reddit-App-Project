@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppLayout />}>
-          <Route path=":query" element={<AppLayout />}/> {/*Se sidste svar fra chat GPT*/}
+          <Route path=":query" element={<AppLayout />}/>
         </Route>
       </Routes>
       {/*Her skal jeg have mine Routes og Route*/}

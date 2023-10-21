@@ -19,3 +19,24 @@ html {
     justify-content: space-evenly;
     padding: 1rem;
 }
+
+.upvote.active {
+    color: green;
+}
+
+.downvote.active {
+    color: red;
+}
+
+.contentBox p {
+    max-width: 100%; /* Set the maximum width to the width of the contentBox */
+    white-space: normal; /* Allow text to wrap within the <p> element */
+    text-overflow: ellipsis; /* Add an ellipsis (...) for text overflow */
+}
+
+.contentBox video,
+.contentBox img,
+.contentBox a {
+    max-width: 100%; /* Force media and links to fit within the container */
+    height: auto; /* Maintain the aspect ratio */
+}
