@@ -73,14 +73,14 @@ const ContentBox = ({ subreddit, title, NumUPS, CommNum, contentData}) => {
             {isSelfPost ? (
                 <p>{source}</p>
             ) : isVideo ? (
-                <video controls>
-                    <source src={source} type="video/mp4" />
+                <video data-testid="video-element" src={source} type="video/mp4" controls>
+                    {/*<source src={source} type="video/mp4" />*/} {/*Test fejlen er her!!! pga. src bruges her og ikke i video elementet!*/}
                     Your browser does not support the video tag.
                 </video>
             ) : isImage ? (
                 <img src={source} alt={title} />
             ) : (
-                <a href={source} target="_blank" rel="noopener noreferrer">
+                <a data-testid="link-element" href={source} target="_blank" rel="noopener noreferrer">
                     {title}
                 </a>
             )}

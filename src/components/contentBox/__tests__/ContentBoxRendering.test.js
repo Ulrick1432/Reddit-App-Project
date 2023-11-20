@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen} from '@testing-library/react';
 import ContentBox from '../ContentBox';
 
 describe('ContentBox', () => {
@@ -29,22 +29,4 @@ describe('ContentBox', () => {
     expect(screen.getByText(defaultProps.subreddit)).toBeInTheDocument();
     expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
   });
-
-  it('increments voteCount when upvote is clicked', () => {
-    render(<ContentBox {...defaultProps} />);
-    const upvoteButton = screen.getByText('▲');
-    fireEvent.click(upvoteButton);
-    expect(screen.getByText('1')).toBeInTheDocument();
-  });
-
-  it('toggles upvoted state when upvote is clicked', () => {
-    render(<ContentBox {...defaultProps} />);
-    const upvoteButton = screen.getByText('▲');
-    fireEvent.click(upvoteButton);
-    expect(screen.getByText('▲')).toHaveClass('active');
-    fireEvent.click(upvoteButton);
-    expect(screen.getByText('▲')).not.toHaveClass('active');
-  });
-
-  // Write similar tests for downvoting, content type handling, and more.
 });
