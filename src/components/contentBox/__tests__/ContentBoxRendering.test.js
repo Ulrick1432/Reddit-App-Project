@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, screen} from '@testing-library/react';
 import ContentBox from '../ContentBox';
-
+/* Purpose: This test ensures that the ContentBox component renders correctly with the default props, 
+and certain elements (subreddit and title) are present in the rendered output. */
 describe('ContentBox', () => {
   const contentData = {
     post_hint: 'image',

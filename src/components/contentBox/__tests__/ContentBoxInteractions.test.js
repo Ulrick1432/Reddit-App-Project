@@ -2,7 +2,8 @@ import React from 'react';
 import { render, screen} from '@testing-library/react';
 import ContentBox from '../ContentBox';
 import userEvent from "@testing-library/user-event";
-
+/* Purpose: These tests focus on user interactions. They simulate user clicks on the upvote and downvote buttons, 
+and then check whether the expected changes in the component's state (e.g., vote count and button classes) occur. */
 describe('User Interation Test for the ContentBox component', () => {
     const contentData = {
         post_hint: 'image',
