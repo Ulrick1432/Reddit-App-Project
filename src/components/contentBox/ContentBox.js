@@ -49,10 +49,10 @@ const ContentBox = ({ subreddit, title, NumUPS, CommNum, contentData}) => {
         source = contentData.url;
     } else if (isLink) {
         source = contentData.url;
-    } else {
+    }; /*else {
         // Handle any other cases as needed
         source = contentData.url; // Default to URL if not recognized
-    }
+    }*/
 
 
     return (
