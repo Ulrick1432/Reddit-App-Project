@@ -3,6 +3,7 @@ import { render, screen} from '@testing-library/react';
 import ContentBox from '../ContentBox';
 /* Purpose: These tests cover various functionalities of the ContentBox component based on different types of content. 
 For example, they check if self-text, video, image, and link content are rendered correctly. */
+//This is unit testing
 describe('ContentBox', () => {
   const contentData = {
     post_hint: 'image',
