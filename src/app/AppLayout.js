@@ -3,6 +3,7 @@ import React from "react";
 import ContentBoxes from "../components/contentBox/ContentBoxes.js";
 import "./appLayout.css";
 import Header from "../components/header/Header.js";
+
 export default function AppLayout() {
     return (
         <div>
