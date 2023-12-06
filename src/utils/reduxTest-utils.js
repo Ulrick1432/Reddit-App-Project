@@ -26,7 +26,12 @@ export function renderWithProviders(
     function Wrapper({ children }) {
       return <Provider store={store}>{children}</Provider>
     }
-  
+    
+    //Mock dispatch function
+    const mockDispatch = jest.fn();
+    store.dispatch = mockDispatch;
+
+
     // Return an object with the store and all of RTL's query functions
     return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }
   }

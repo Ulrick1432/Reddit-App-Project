@@ -22,7 +22,7 @@ const SearchBar = () => {
         const sanitizedSearchInput = searchInput.replace(/ /g, '%20');//Replace white space in searchInput with '%20'
         searchReddit(sanitizedSearchInput) //Gives the SearchReddit Fetch query ass the search input.
         .then((searchData) => {
-            dispatch(setSearchResults(searchData))//update the state of searchResults to the retuned data
+            dispatch(setSearchResults(searchData));//update the state of searchResults to the retuned data
             const searchParams = new URLSearchParams();//built-in JavaScript class used for handling URL query parameters.
             searchParams.set('q', searchInput);//sets a query parameter named 'q' in the searchParams object.
             navigate(`/search?q=${sanitizedSearchInput}`);// navigate to a new URL
@@ -37,6 +37,7 @@ const SearchBar = () => {
     return (
         <div>
             <input 
+                id="searchInput"
                 type="text"
                 value={searchInput}
                 onChange={handleSearchInput}
