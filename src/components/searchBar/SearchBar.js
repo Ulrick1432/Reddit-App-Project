@@ -6,8 +6,6 @@ import { setSearchResults } from "./searchResultSlice.js";
 import { searchReddit } from "../../api/api.mjs";
 import { useNavigate } from "react-router-dom";
 
-
-
 const SearchBar = () => {
     const dispatch = useDispatch(); //used to dispatch actions / update state.
     const navigate = useNavigate();
@@ -17,6 +15,12 @@ const SearchBar = () => {
     const handleSearchInput = (e) => {
         dispatch(setSearchInput(e.target.value)); //updates SearchInput with the value that have been written into the input element.
     }
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") { //triggers HandleSearch when user hits the enter key in the input field
+            handleSearch();
+        }
+    };
 
     const handleSearch = () => { 
         const sanitizedSearchInput = searchInput.replace(/ /g, '%20');//Replace white space in searchInput with '%20'
@@ -28,11 +32,6 @@ const SearchBar = () => {
             navigate(`/search?q=${sanitizedSearchInput}`);// navigate to a new URL
         });
     }
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") { //triggers HandleSearch when user hits the enter key in the input field
-            handleSearch();
-        }
-    };
 
     return (
         <div>
@@ -47,4 +46,5 @@ const SearchBar = () => {
         </div>
     )
 }
+
 export default SearchBar;
