@@ -6,12 +6,11 @@ import Header from "../components/header/Header.js";
 
 export default function AppLayout() {
     return (
-        <div>
+        <div data-testid='appLayout'>
             <Header />
             <div className="divContent">
                 <ContentBoxes/>
             </div>
-
         </div>
     )
 }

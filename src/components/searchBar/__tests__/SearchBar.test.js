@@ -1,6 +1,5 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import store from '../../../app/store.js'; //"store is not a named variable in the file"
 import { Provider } from 'react-redux';
 import { MemoryRouter } from "react-router-dom";

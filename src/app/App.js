@@ -5,14 +5,16 @@ import AppLayout from "./AppLayout.js";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppLayout />}>
-          <Route path=":query" element={<AppLayout />}/>
-        </Route>
-      </Routes>
-      {/*Her skal jeg have mine Routes og Route*/}
-    </BrowserRouter>
+    <div data-testid='app'>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AppLayout />}>
+            <Route path=":query" element={<AppLayout />}/>
+          </Route>
+        </Routes>
+        {/*Her skal jeg have mine Routes og Route*/}
+      </BrowserRouter>
+    </div>
   );
 }
 
