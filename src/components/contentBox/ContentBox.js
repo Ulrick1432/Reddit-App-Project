@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./contentBox.css"
 
-const ContentBox = ({ subreddit, title, NumUPS, CommNum, contentData}) => {
+const ContentBox = ({ subreddit, title, NumUPS, CommNum, contentData }) => {
     const [upvoted, setUpvoted] = useState(false);
     const [downvoted, setDownvoted] = useState(false);
     const [voteCount, setVoteCount] = useState(NumUPS);
@@ -56,7 +56,7 @@ const ContentBox = ({ subreddit, title, NumUPS, CommNum, contentData}) => {
 
 
     return (
-        <div className="contentBox">
+        <div className="contentBox" >
             <h3>{subreddit}</h3>
             <div className="contentBoxHeaderAndFooter">
                 <div className="like">

@@ -12,6 +12,7 @@ const ContentBoxes = () => {
     const searchResults = useSelector((state) => state.searchResults);
     const selectedSort = useSelector((state) => state.headerSort);
     const [initialRedditData, setInitialRedditData] = useState([]);
+
     useEffect(() => {
         initialReddit()
         .then((data) => {
@@ -25,7 +26,7 @@ const ContentBoxes = () => {
     const dataSource = searchResults.length > 0 ? searchResults : initialRedditData;
 
     return (
-        <div className="contentBoxes">
+        <div className="contentBoxes" data-testid='contentBoxes' >
             {dataSource.map((element, index) => ( //.map will look at all the elements and return the value that is requested in the contentbox for that index.
                 <ContentBox 
                     key={index}
