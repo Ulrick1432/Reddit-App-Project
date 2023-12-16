@@ -1,8 +1,8 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import store from '../../../app/store.js'; //"store is not a named variable in the file"
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
+import store from '../../../app/store.js';
 import { Provider } from 'react-redux';
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
 import SearchBar from "../SearchBar.js";
 import { searchReddit } from "../../../api/api.mjs";
 
@@ -14,23 +14,7 @@ describe('SearchBar Component', () => {
     jest.restoreAllMocks();
   });
 
-  //Nedenstående test virker! 
-  it('Handles search input change', async () => {
-    render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <SearchBar />
-        </MemoryRouter>
-      </Provider>
-    );
-    const element = screen.getByRole('textbox');
-    expect(element).toBeInTheDocument();
-    await fireEvent.change(element, { target: { value: 'test' } });
-    expect(element.value).toBe('test');
-  });
-
   it('Handles search when Enter key is pressed', async () => {
-
     searchReddit.mockResolvedValue({
       data: {
         children: [
@@ -39,21 +23,30 @@ describe('SearchBar Component', () => {
       }
     });
     
-    render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <SearchBar />
-        </MemoryRouter>
-      </Provider>
-    );
+    await act(async () => {
+      render(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={['/']} initialIndex={0}>
+            <Routes>
+              <Route path="/" element={<SearchBar />} />
+              <Route path=":query" element={<SearchBar />} />
+            </Routes>
+          </MemoryRouter>
+        </Provider>
+      );
+    });
 
     const element = screen.getByRole('textbox');
     expect(element).toBeInTheDocument();
 
-    await fireEvent.change(element, { target: { value: 'test' } });
+    await act(async () => {
+      fireEvent.change(element, { target: { value: 'test' } });
+    });
     expect(element.value).toBe('test');
 
-    await fireEvent.keyDown(element, { key: 'Enter', code: 'Enter'});
+    await act(async () => {
+      fireEvent.keyDown(element, { key: 'Enter', code: 'Enter' });
+    });
 
     await waitFor(() => {
       expect(store.getState().searchResults).toEqual({
