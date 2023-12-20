@@ -1,3 +1,4 @@
+import "./errorState.css";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setErrorState } from "./errorStateSlice.js";
@@ -15,14 +16,14 @@ const ReportErrorButton = () => {
   console.log(errorState);
 
   return (
-    <div>
+    <div className="errorReportContainer">
       <div>
         <button name="reportErrorButton" onClick={handleErrorStateButton}>
           Report Error
         </button>
       </div>
       {errorState && 
-        <div>
+        <div className="errorReportPopup">
           <h3>Error report</h3>
           <button onClick={() => dispatch(setErrorState(false))}>Close</button>
           <textarea 
@@ -32,7 +33,6 @@ const ReportErrorButton = () => {
           />
           <button type="submit" onClick={() => dispatch(setErrorState(false))}>Submit</button>
         </div>
-        
       }
     </div>
   )

@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { setHeaderSort } from "./headerSortSlice.js";
 import { searchReddit } from "../../api/api.mjs";
 import { setSearchResults } from "../searchBar/searchResultSlice.js";
+import RedditLogo from "../../Resources/IMG/reddit-circle-logo-64px.png"; // Import the image
+
 
 const Header = () => {
 
@@ -28,12 +30,12 @@ const Header = () => {
 
     return (
         <div className="header">
-            <p>Logo/IMG</p>
+            <img src={RedditLogo} height={"64px"} alt="reddit logo"/>
             <div className="titleWithSearchBar">
                 <h1>UPH Reddit V</h1>
                 <SearchBar />
             </div>
-            <div>
+            <div className="divForTopicsAndErrorBut">
                 <p>Topics</p>
                 <select 
                     id="topics" 
@@ -48,8 +50,8 @@ const Header = () => {
                     <option value="television">Television</option>
                     <option value="celebrity">Celebrity</option>
                 </select>
+                <ReportErrorButton />
             </div>
-        <ReportErrorButton />
         </div>
     );
 };

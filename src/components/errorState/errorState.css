@@ -1,0 +1,15 @@
+.errorReportContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errorReportPopup {
+  display: flex;
+  flex-direction: column;
+  background-color: blueviolet;
+}
+
+.errorReportPopup h3 {
+  align-self: center;
+}
