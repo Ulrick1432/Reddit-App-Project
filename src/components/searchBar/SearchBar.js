@@ -34,15 +34,15 @@ const SearchBar = () => {
     }
 
     return (
-        <div>
+        <div className="searchInput">
             <input 
                 id="searchInput"
                 type="text"
+                placeholder="Search..."
                 value={searchInput}
                 onChange={handleSearchInput}
                 onKeyDown={handleKeyDown}
             />
-            <p>{searchInput}</p> {/*This line can be deleted was just for testing purpose*/}
         </div>
     )
 }

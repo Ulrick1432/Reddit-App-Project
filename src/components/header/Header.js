@@ -29,8 +29,10 @@ const Header = () => {
     return (
         <div className="header">
             <p>Logo/IMG</p>
-            <p>Title</p>
-            <SearchBar />
+            <div className="titleWithSearchBar">
+                <h1>UPH Reddit V</h1>
+                <SearchBar />
+            </div>
             <div>
                 <p>Topics</p>
                 <select 
