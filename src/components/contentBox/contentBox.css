@@ -12,6 +12,12 @@ html {
     width: 41rem;
 }
 
+@media only screen and (max-width: 48rem) {
+    .contentBox {
+        width: 100%
+    }
+}
+
 .contentBoxHeaderAndFooter {
     border-color: black;
     background-color: blueviolet;
