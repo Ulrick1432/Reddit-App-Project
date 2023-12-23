@@ -1,4 +1,5 @@
 //This file is used to map multiple contentbox 
+import "./contentBoxes.css"
 import React, { useEffect, useState } from "react";
 import ContentBox from "./ContentBox.js";
 import "./contentBox.css";

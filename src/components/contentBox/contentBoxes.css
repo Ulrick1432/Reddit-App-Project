@@ -1,0 +1,6 @@
+.contentBoxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Aligns all items vertically at the center */
+  max-width: 100%;
+}
