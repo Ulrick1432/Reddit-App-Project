@@ -4,13 +4,9 @@ import ContentBox from "./ContentBox.js";
 import "./contentBox.css";
 import { initialReddit } from "../../api/api.mjs";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 
 const ContentBoxes = () => {
-    const location = useLocation();//This object represents the current URL location
-    const searchQuery = new URLSearchParams(location.search).get('q');//access the query parameters in the URL
     const searchResults = useSelector((state) => state.searchResults);
-    const selectedSort = useSelector((state) => state.headerSort);
     const [initialRedditData, setInitialRedditData] = useState([]);
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import searchBarReducer from '../components/searchBar/searchBarSlice.js';
 import searchResultsReducer from "../components/searchBar/searchResultSlice.js";
 import headerSortReducer from "../components/header/headerSortSlice.js";
