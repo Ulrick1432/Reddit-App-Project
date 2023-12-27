@@ -9,7 +9,6 @@ html {
     padding: 1rem;
     text-align: center;
     width: 41rem;
-    overflow: hidden;
 }
 
 @media only screen and (max-width: 43rem) {
@@ -39,6 +38,7 @@ html {
     max-width: 100%; /* Set the maximum width to the width of the contentBox */
     white-space: normal; /* Allow text to wrap within the <p> element */
     text-overflow: ellipsis; /* Add an ellipsis (...) for text overflow */
+    word-wrap: break-word;
 }
 
 .contentBox video,
