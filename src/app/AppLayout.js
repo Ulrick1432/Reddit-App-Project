@@ -2,11 +2,13 @@
 import React from "react";
 import ContentBoxes from "../components/contentBox/ContentBoxes.js";
 import Header from "../components/header/Header.js";
+import ErrorForm from "../components/errorState/ErrorForm.js";
 
 export default function AppLayout() {
     return (
         <div data-testid='appLayout'>
             <Header />
+            <ErrorForm />
             <ContentBoxes/>
         </div>
     )
