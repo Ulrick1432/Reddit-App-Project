@@ -30,7 +30,7 @@ const Header = () => {
 
     return (
         <div className="header">
-            <img src={RedditLogo} height={"64px"} alt="reddit logo"/>
+            <img className="logo" src={RedditLogo} alt="reddit logo"/>
             <div className="titleWithSearchBar">
                 <h1>UPH Reddit V</h1>
                 <SearchBar />

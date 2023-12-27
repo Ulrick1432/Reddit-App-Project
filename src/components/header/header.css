@@ -6,6 +6,15 @@
     max-width: 100%
 }
 
+.logo {
+    height: 64px;
+}
+
+@media only screen and (max-width: 24rem) {
+    .logo {height: 32px}
+    .header h1 {font-size: large;}
+}
+
 .searchInput {
     display: flex;
     align-items: center;
