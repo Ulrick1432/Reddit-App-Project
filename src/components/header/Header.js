@@ -3,6 +3,7 @@ import "./header.css";
 import SearchBar from "../searchBar/SearchBar.js";
 import ReportErrorButton from "../errorState/ErrorState.js";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { setHeaderSort } from "./headerSortSlice.js";
 import { searchReddit } from "../../api/api.mjs";
 import { setSearchResults } from "../searchBar/searchResultSlice.js";
@@ -12,6 +13,7 @@ import RedditLogo from "../../Resources/IMG/reddit-circle-logo-64px.png"; // Imp
 const Header = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleTopicsSearch = (e) => {
     const selectedTopic = e.target.value;
@@ -21,6 +23,9 @@ const Header = () => {
     searchReddit(query)
         .then((searchData) => {
             dispatch(setSearchResults(searchData)); // Dispatch an action to set the search results in the Redux store
+            const topicParams = new URLSearchParams();
+            topicParams.set('q', selectedTopic);
+            navigate(`/r/${selectedTopic}`);
         })
         .catch((error) => {
             console.error("Error performing topic-based search:", error);
