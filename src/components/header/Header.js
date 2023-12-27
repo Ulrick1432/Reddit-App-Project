@@ -17,20 +17,23 @@ const Header = () => {
 
     const handleTopicsSearch = (e) => {
     const selectedTopic = e.target.value;
-    dispatch(setHeaderSort(selectedTopic)); // Dispatch an action to set the selected topic in the Redux store
-    const query = `topic:${selectedTopic}`;
-    
-    searchReddit(query)
-        .then((searchData) => {
-            dispatch(setSearchResults(searchData)); // Dispatch an action to set the search results in the Redux store
-            const topicParams = new URLSearchParams();
-            topicParams.set('q', selectedTopic);
-            navigate(`/r/${selectedTopic}`);
-        })
-        .catch((error) => {
-            console.error("Error performing topic-based search:", error);
-            window.alert(error);
-        });
+    if (selectedTopic !== "") {
+        dispatch(setHeaderSort(selectedTopic)); // Dispatch an action to set the selected topic in the Redux store
+        const query = `topic:${selectedTopic}`;
+        
+        searchReddit(query)
+            .then((searchData) => {
+                dispatch(setSearchResults(searchData)); // Dispatch an action to set the search results in the Redux store
+                const topicParams = new URLSearchParams();
+                topicParams.set('q', selectedTopic);
+                navigate(`/r/${selectedTopic}`);
+            })
+            .catch((error) => {
+                console.error("Error performing topic-based search:", error);
+                window.alert(error);
+            });
+    }
+   
     };
 
     return (
@@ -48,6 +51,7 @@ const Header = () => {
                     name="topics" 
                     onChange={handleTopicsSearch}
                 >
+                    <option value="">Select topic</option>
                     <option value="gaming">Gaming</option>
                     <option value="sports">Sports</option>
                     <option value="business">Business</option>
