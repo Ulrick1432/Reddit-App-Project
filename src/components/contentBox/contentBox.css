@@ -1,25 +1,20 @@
 /*Used for styling the contentBox*/
 html {
     font-size: 16px; /*standard font-size (1 rem = 16 px)*/ 
+    background-color: black;
 }
 
 .contentBox {
     margin-top: 1rem;
-    background-color: red;
+    background-color: blueviolet;
     padding: 1rem;
     text-align: center;
     width: 41rem;
 }
 
-@media only screen and (max-width: 43rem) {
-    .contentBox {
-        max-width: 100%;
-        padding: 0;
-    }
-}
-
 .contentBoxHeaderAndFooter {
-    border-color: black;
+    border: 0.3rem solid;
+    border-color: rgb(27, 87, 84);
     background-color: blueviolet;
     display: flex;
     justify-content: space-evenly;
@@ -38,7 +33,7 @@ html {
     max-width: 100%; /* Set the maximum width to the width of the contentBox */
     white-space: normal; /* Allow text to wrap within the <p> element */
     text-overflow: ellipsis; /* Add an ellipsis (...) for text overflow */
-    word-wrap: break-word;
+    word-wrap: break-word; /*Wraps the word if it overflows the container*/
 }
 
 .contentBox video,
@@ -46,4 +41,15 @@ html {
 .contentBox a {
     max-width: 100%; /* Force media and links to fit within the container */
     height: auto; /* Maintain the aspect ratio */
+}
+
+@media only screen and (max-width: 43rem) {
+    .contentBox {
+        max-width: 100%;
+        padding: 0;
+    }
+    .contentBoxHeaderAndFooter {
+        border: 0.2rem solid;
+        border-color: rgb(27, 87, 84);
+    }
 }

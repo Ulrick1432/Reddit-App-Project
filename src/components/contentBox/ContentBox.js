@@ -57,7 +57,6 @@ const ContentBox = ({ subreddit, title, NumUPS, CommNum, contentData }) => {
 
     return (
         <div className="contentBox" >
-            <h3>{subreddit}</h3>
             <div className="contentBoxHeaderAndFooter">
                 <div className="like">
                     <p className={`upvote ${upvoted ? "active" : ""}`} onClick={handleUpvote} >
@@ -85,7 +84,8 @@ const ContentBox = ({ subreddit, title, NumUPS, CommNum, contentData }) => {
                 </a>
             )}
             <div className="contentBoxHeaderAndFooter">
-                <p>subreddit</p>
+                <p>{subreddit}</p>
+                <p>Amout of comments →</p>
                 <p>{CommNum}</p>
             </div>
         </div>
