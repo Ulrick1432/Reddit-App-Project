@@ -1,4 +1,3 @@
-import "./errorState.css";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setErrorState } from "./errorStateSlice.js";
@@ -13,7 +12,7 @@ const ReportErrorButton = () => {
   console.log(errorState);
 
   return (
-    <div className="errorReportButton">
+    <div className="reportErrorButton Container">
       <div>
         <button name="reportErrorButton" onClick={handleErrorStateButton}>
           Report Error

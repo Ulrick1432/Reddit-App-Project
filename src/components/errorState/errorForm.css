@@ -1,0 +1,19 @@
+.errorFormContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.errorForm {
+  display: flex;
+  flex-direction: column;
+  background-color: blueviolet;
+  width: 41rem;
+  padding: 1rem;
+}
+
+.errorForm h3 {
+  align-self: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
