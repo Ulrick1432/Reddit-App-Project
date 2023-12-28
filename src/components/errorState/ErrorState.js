@@ -11,9 +11,9 @@ const ReportErrorButton = () => {
   }
 
   return (
-    <div className="reportErrorButton Container">
+    <div className="reportErrorButton Container" data-testid='reportErrorButtonContainer'>
       <div>
-        <button name="reportErrorButton" onClick={handleErrorStateButton}>
+        <button name="reportErrorButton" onClick={handleErrorStateButton} data-testid='reportErrorButton' >
           Report Error
         </button>
       </div>

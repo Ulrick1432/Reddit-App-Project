@@ -11,16 +11,23 @@ const ErrorForm = () => {
 
   return (
     errorState && 
-    <div className="errorFormContainer">
+    <div className="errorFormContainer" data-testid='errorFormContainer'>
       <div className="errorForm">
         <h3>Error report</h3>
-        <button onClick={() => dispatch(setErrorState(false))}>Close</button>
+        <button onClick={() => dispatch(setErrorState(false))} data-testid='closeError'>Close</button>
         <textarea 
           placeholder="Describe the error..."
           value={errorText}
           onChange={(e) => setErrorText(e.target.value)}
+          data-testid='errorTextarea'
         />
-        <button type="submit" onClick={() => dispatch(setErrorState(false))}>Submit</button>
+        <button 
+          type="submit" 
+          onClick={() => dispatch(setErrorState(false))} 
+          data-testid='submitButton'
+          >
+          Submit
+        </button>
       </div>
     </div>
   )
