@@ -9,7 +9,6 @@ const ReportErrorButton = () => {
   const handleErrorStateButton = () => {
     dispatch(setErrorState(true));
   }
-  console.log(errorState);
 
   return (
     <div className="reportErrorButton Container">

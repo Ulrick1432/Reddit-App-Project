@@ -36,7 +36,7 @@ describe('SearchBar Component', () => {
       );
     });
 
-    const element = screen.getByRole('textbox');
+    const element = screen.getByRole('searchbox');
     expect(element).toBeInTheDocument();
 
     await act(async () => {

@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const ErrorForm = () => {
   const [errorText, setErrorText] = useState('');
-  console.log(errorText);
 
   const dispatch = useDispatch();
   const errorState = useSelector((state) => state.error)
