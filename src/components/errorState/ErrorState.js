@@ -1,10 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setErrorState } from "./errorStateSlice.js";
 
 const ReportErrorButton = () => {
   const dispatch = useDispatch();
-  const errorState = useSelector((state) => state.error)
 
   const handleErrorStateButton = () => {
     dispatch(setErrorState(true));
