@@ -1,4 +1,6 @@
 //Used for Redux integration
+//It's not used in this App.
+//This code is used when you want to used a copy of the used redux store.
 import React from "react";
 import { render } from '@testing-library/react';
 import { configureStore } from "@reduxjs/toolkit";
@@ -7,6 +9,7 @@ import searchBarReducer from '../components/searchBar/searchBarSlice.js';
 import searchResultsReducer from "../components/searchBar/searchResultSlice.js";
 import headerSortReducer from "../components/header/headerSortSlice.js";
 
+//The function can be should be used like this in the testfile → renderWithProviders(<UserDisplay />)
 export function renderWithProviders(
     ui,
     {
