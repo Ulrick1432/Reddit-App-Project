@@ -28,7 +28,9 @@ describe('User Interation Test for the ContentBox component', () => {
 
       it('increments voteCount when upvote is clicked', async () => {
         render(<ContentBox {...defaultProps} />);
+
         const upvoteButton = screen.getByText('▲');
+
         await act(async () => {
           userEvent.click(upvoteButton);
         });
@@ -37,11 +39,14 @@ describe('User Interation Test for the ContentBox component', () => {
     
       it('toggles upvoted state when upvote is clicked', async () => {
         render(<ContentBox {...defaultProps}/>);
+
         const upvoteButton = screen.getByText('▲');
+
         await act(async () => {
           userEvent.click(upvoteButton);
         });
         expect(await screen.getByText('▲')).toHaveClass('active');
+
         await act(async () => {
           userEvent.click(upvoteButton);
         });
@@ -50,11 +55,14 @@ describe('User Interation Test for the ContentBox component', () => {
     
       it('toggles downvoted state when downvote is clicked', async () => {
         render(<ContentBox {...defaultProps} />);
+
         const downvoteButton = screen.getByText('▼');
+
         await act(async () => {
           userEvent.click(downvoteButton);
         });
         expect(await screen.getByText('▼')).toHaveClass('active');
+        
         await act(async () => {
           userEvent.click(downvoteButton);
         });

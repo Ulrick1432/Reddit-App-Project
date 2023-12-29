@@ -15,6 +15,7 @@ describe('SearchBar Component', () => {
   });
 
   it('Handles search when Enter key is pressed', async () => {
+    //Mocks data to SearchReddit Function from the API/fetch call - so that real data/fetch isn't used
     searchReddit.mockResolvedValue({
       data: {
         children: [
@@ -60,8 +61,3 @@ describe('SearchBar Component', () => {
     });
   });
 });
-
-
-
-
-//https://github.com/testing-library/jest-dom#custom-matchers

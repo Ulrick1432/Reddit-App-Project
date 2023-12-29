@@ -1,10 +1,12 @@
 import React from "react";
-import { render, screen, waitFor, act } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import { Provider } from "react-redux";
 import store from "../../../app/store";
 import ContentBoxes from "../ContentBoxes";
 import { MemoryRouter } from "react-router-dom";
 import { initialReddit } from "../../../api/api.mjs";
+
+//This test makes sure that the datasource.map() works in ContentBoxes component.
 
 jest.mock('../../../api/api.mjs');
 

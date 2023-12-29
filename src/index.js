@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './app/App.js';
 import reportWebVitals from './reportWebVitals.js';
-import store from './app/store.js'; //"store is not a named variable in the file"
+import store from './app/store.js'; //"store is not a named variable in the file this is possible becuase it's exported as default"
 import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

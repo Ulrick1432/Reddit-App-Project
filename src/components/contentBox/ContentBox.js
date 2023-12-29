@@ -3,93 +3,89 @@ import React, { useState } from "react";
 import "./contentBox.css"
 
 const ContentBox = ({ subreddit, title, NumUPS, CommNum, contentData }) => {
-    const [upvoted, setUpvoted] = useState(false);
-    const [downvoted, setDownvoted] = useState(false);
-    const [voteCount, setVoteCount] = useState(NumUPS);
+  const [upvoted, setUpvoted] = useState(false);
+  const [downvoted, setDownvoted] = useState(false);
+  const [voteCount, setVoteCount] = useState(NumUPS);
 
-    const handleUpvote = () => {
-        if (!upvoted) {
-            setVoteCount(voteCount + 1);
-            setUpvoted(true);
-            if (downvoted) {
-                setDownvoted(false);
-            }
-        } else {
-            setVoteCount(voteCount -1);
-            setUpvoted(false);
-        }
-    };
+  const handleUpvote = () => {
+    if (!upvoted) {
+      setVoteCount(voteCount + 1);
+      setUpvoted(true);
+      if (downvoted) {
+        setDownvoted(false);
+      }
+    } else {
+      setVoteCount(voteCount -1);
+      setUpvoted(false);
+    }
+  };
 
-    const handleDownvote = () => {
-        if (!downvoted) {
-            setVoteCount(voteCount - 1);
-            setDownvoted(true);
-            if (upvoted) {
-                setUpvoted(false);
-            }
-        } else {
-            setVoteCount(voteCount + 1);
-            setDownvoted(false);
-        }
-    };
-    const isImage = contentData.post_hint === "image";
-    const isVideo = contentData.is_video;
-    const isLink = contentData.url && !isImage && !isVideo && !contentData.is_self;
-    const isSelfPost = contentData.is_self;
+  const handleDownvote = () => {
+    if (!downvoted) {
+      setVoteCount(voteCount - 1);
+      setDownvoted(true);
+      if (upvoted) {
+        setUpvoted(false);
+      }
+    } else {
+      setVoteCount(voteCount + 1);
+      setDownvoted(false);
+    }
+  };
+  const isImage = contentData.post_hint === "image";
+  const isVideo = contentData.is_video;
+  const isLink = contentData.url && !isImage && !isVideo && !contentData.is_self;
+  const isSelfPost = contentData.is_self;
 
-    // Determine the content source based on the post type
-    let source;
+  // Determine the content source based on the post type
+  let source;
 
-    if (isSelfPost) {
-        // Render self-text content
-        source = contentData.selftext;
-    } else if (isVideo) {
-        source = contentData.secure_media.reddit_video.fallback_url;
-    } else if (isImage) {
-        source = contentData.url;
-    } else if (isLink) {
-        source = contentData.url;
-    }; /*else {
-        // Handle any other cases as needed
-        source = contentData.url; // Default to URL if not recognized
-    }*/
+  if (isSelfPost) {
+    // Render self-text content
+    source = contentData.selftext;
+  } else if (isVideo) {
+    source = contentData.secure_media.reddit_video.fallback_url;
+  } else if (isImage) {
+    source = contentData.url;
+  } else if (isLink) {
+    source = contentData.url;
+  };
 
 
-    return (
-        <div className="contentBox" >
-            <div className="contentBoxHeaderAndFooter">
-                <div className="like">
-                    <p className={`upvote ${upvoted ? "active" : ""}`} onClick={handleUpvote} >
-                        ▲
-                    </p>
-                    <p>{voteCount}</p>
-                    <p className={`downvote ${downvoted ? "active" : ""}`} onClick={handleDownvote} >
-                        ▼
-                    </p>
-                </div>
-                <h2>{title}</h2>
-            </div>
-            {isSelfPost ? (
-                <p>{source}</p>
-            ) : isVideo ? (
-                <video data-testid="video-element" src={source} type="video/mp4" controls>
-                    {/*<source src={source} type="video/mp4" />*/} {/*Test fejlen er her!!! pga. src bruges her og ikke i video elementet!*/}
-                    Your browser does not support the video tag.
-                </video>
-            ) : isImage ? (
-                <img src={source} alt={title} />
-            ) : (
-                <a data-testid="link-element" href={source} target="_blank" rel="noopener noreferrer">
-                    {title}
-                </a>
-            )}
-            <div className="contentBoxHeaderAndFooter">
-                <p>{subreddit}</p>
-                <p>Amout of comments →</p>
-                <p>{CommNum}</p>
-            </div>
-        </div>
-    )
+  return (
+    <div className="contentBox" >
+      <div className="contentBoxHeaderAndFooter">
+          <div className="like">
+              <p className={`upvote ${upvoted ? "active" : ""}`} onClick={handleUpvote} >
+                  ▲
+              </p>
+              <p>{voteCount}</p>
+              <p className={`downvote ${downvoted ? "active" : ""}`} onClick={handleDownvote} >
+                  ▼
+              </p>
+          </div>
+          <h2>{title}</h2>
+      </div>
+      {isSelfPost ? (
+          <p>{source}</p>
+      ) : isVideo ? (
+          <video data-testid="video-element" src={source} type="video/mp4" controls>
+              Your browser does not support the video tag.
+          </video>
+      ) : isImage ? (
+          <img src={source} alt={title} />
+      ) : (
+          <a data-testid="link-element" href={source} target="_blank" rel="noopener noreferrer">
+              {title}
+          </a>
+      )}
+      <div className="contentBoxHeaderAndFooter">
+          <p>{subreddit}</p>
+          <p>Amout of comments →</p>
+          <p>{CommNum}</p>
+      </div>
+    </div>
+  )
 }
 
 export default ContentBox;

@@ -16,6 +16,7 @@ describe('Header Component', () => {
   });
 
   it('handles topics search', async () => {
+    //Mocks data to SearchReddit Function from the API/fetch call - so that real data/fetch isn't used
     searchReddit.mockResolvedValue({
       data: {
         children: [
@@ -43,7 +44,7 @@ describe('Header Component', () => {
 
     const selectElement = screen.getByTestId('topics');
 
-    // Trigger the selection of the 'gaming' option
+    // Trigger the selection of the options
 
     await act(async () => {
       userEvent.selectOptions(selectElement, 'gaming');

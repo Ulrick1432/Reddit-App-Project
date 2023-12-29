@@ -1,3 +1,4 @@
+//This is the ReportErrorButtton
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setErrorState } from "./errorStateSlice.js";
@@ -6,7 +7,7 @@ const ReportErrorButton = () => {
   const dispatch = useDispatch();
 
   const handleErrorStateButton = () => {
-    dispatch(setErrorState(true));
+    dispatch(setErrorState(true)); // Changes the global state of ErrorState to true so that the ErrorForm component will popup in the top of the centent.
   }
 
   return (

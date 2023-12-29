@@ -12,57 +12,56 @@ import RedditLogo from "../../Resources/IMG/reddit-circle-logo-64px.png"; // Imp
 
 const Header = () => {
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-    const handleTopicsSearch = (e) => {
-    const selectedTopic = e.target.value;
-    if (selectedTopic !== "") {
-        dispatch(setHeaderSort(selectedTopic)); // Dispatch an action to set the selected topic in the Redux store
-        const query = `topic:${selectedTopic}`;
-        
-        searchReddit(query)
-            .then((searchData) => {
-                dispatch(setSearchResults(searchData)); // Dispatch an action to set the search results in the Redux store
-                const topicParams = new URLSearchParams();
-                topicParams.set('q', selectedTopic);
-                navigate(`/r/${selectedTopic}`);
-            })
-            .catch((error) => {
-                console.error("Error performing topic-based search:", error);
-                window.alert(error);
-            });
-    }
-   
-    };
+	const handleTopicsSearch = (e) => {
+		const selectedTopic = e.target.value;
+		if (selectedTopic !== "") {
+			dispatch(setHeaderSort(selectedTopic)); // Dispatch an action to set the selected topic in the Redux store
+			const query = `topic:${selectedTopic}`;
+			
+			searchReddit(query)
+				.then((searchData) => {
+					dispatch(setSearchResults(searchData)); // Dispatch an action to set the search results in the Redux store
+					const topicParams = new URLSearchParams(); // create a set of key-value pairs representing the query parameters of a URL.
+					topicParams.set('q', selectedTopic); // sets a query parameter with the key 'q' and the value of the selectedTopic variable.
+					navigate(`/r/${selectedTopic}`); // to perform navigation to a new URL.
+				})
+				.catch((error) => {
+					console.error("Error performing topic-based search:", error);
+					window.alert(error);
+				});
+		}
+	};
 
-    return (
-        <div className="header">
-            <img className="logo" src={RedditLogo} alt="reddit logo"/>
-            <div className="titleWithSearchBar">
-                <h1>UPH Reddit V</h1>
-                <SearchBar />
-            </div>
-            <div className="divForTopicsAndErrorBut">
-                <p>Topics</p>
-                <select 
-                    id="topics" 
-                    data-testid="topics"
-                    name="topics" 
-                    onChange={handleTopicsSearch}
-                >
-                    <option value="">Select topic</option>
-                    <option value="gaming">Gaming</option>
-                    <option value="sports">Sports</option>
-                    <option value="business">Business</option>
-                    <option value="crypto">Crypto</option>
-                    <option value="television">Television</option>
-                    <option value="celebrity">Celebrity</option>
-                </select>
-                <ReportErrorButton />
-            </div>
-        </div>
-    );
+	return (
+		<div className="header">
+			<img className="logo" src={RedditLogo} alt="reddit logo"/>
+			<div className="titleWithSearchBar">
+				<h1>UPH Reddit V</h1>
+				<SearchBar />
+			</div>
+			<div className="divForTopicsAndErrorBut">
+				<p>Topics</p>
+				<select 
+					id="topics" 
+					data-testid="topics"
+					name="topics" 
+					onChange={handleTopicsSearch}
+				>
+					<option value="">Select topic</option>
+					<option value="gaming">Gaming</option>
+					<option value="sports">Sports</option>
+					<option value="business">Business</option>
+					<option value="crypto">Crypto</option>
+					<option value="television">Television</option>
+					<option value="celebrity">Celebrity</option>
+				</select>
+				<ReportErrorButton />
+			</div>
+		</div>
+	);
 };
 
 export default Header;
