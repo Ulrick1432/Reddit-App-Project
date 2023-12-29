@@ -52,6 +52,8 @@ html {
 
 .contentBox a {
     color: lightblue;
+    padding-right: 1rem;
+    word-wrap: break-word; /*Wraps the word if it overflows the container*/
 }
 
 @media only screen and (max-height: 65rem) {
