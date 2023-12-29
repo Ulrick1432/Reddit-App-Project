@@ -5,7 +5,7 @@ import ReportErrorButton from "../errorState/ErrorState.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setHeaderSort } from "./headerSortSlice.js";
-import { searchReddit } from "../../api/api.mjs";
+import { topicReddit } from "../../api/api.mjs";
 import { setSearchResults } from "../searchBar/searchResultSlice.js";
 import RedditLogo from "../../Resources/IMG/reddit-circle-logo-64px.png"; // Import the image
 
@@ -19,9 +19,9 @@ const Header = () => {
 		const selectedTopic = e.target.value;
 		if (selectedTopic !== "") {
 			dispatch(setHeaderSort(selectedTopic)); // Dispatch an action to set the selected topic in the Redux store
-			const query = `topic:${selectedTopic}`;
+			const query = `${selectedTopic}`;
 			
-			searchReddit(query)
+			topicReddit(query)
 				.then((searchData) => {
 					dispatch(setSearchResults(searchData)); // Dispatch an action to set the search results in the Redux store
 					const topicParams = new URLSearchParams(); // create a set of key-value pairs representing the query parameters of a URL.
@@ -56,7 +56,6 @@ const Header = () => {
 					<option value="business">Business</option>
 					<option value="crypto">Crypto</option>
 					<option value="television">Television</option>
-					<option value="celebrity">Celebrity</option>
 				</select>
 				<ReportErrorButton />
 			</div>
