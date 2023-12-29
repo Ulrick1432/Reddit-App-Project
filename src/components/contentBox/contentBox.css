@@ -1,7 +1,7 @@
 /*Used for styling the contentBox*/
 html {
     font-size: 16px; /*standard font-size (1 rem = 16 px)*/ 
-    background-color: #2B262D;
+    background-color: #2B262D;;
 }
 
 .contentBox {
@@ -48,6 +48,10 @@ html {
 .contentBox video,
 .contentBox img {
     max-height: 31rem;
+}
+
+.contentBox a {
+    color: lightblue;
 }
 
 @media only screen and (max-height: 65rem) {
