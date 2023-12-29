@@ -18,7 +18,8 @@ html {
     background-color: blueviolet;
     display: flex;
     justify-content: space-evenly;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .upvote.active {
@@ -34,6 +35,7 @@ html {
     white-space: normal; /* Allow text to wrap within the <p> element */
     text-overflow: ellipsis; /* Add an ellipsis (...) for text overflow */
     word-wrap: break-word; /*Wraps the word if it overflows the container*/
+    padding: 0rem 1rem 0rem 1rem;
 }
 
 .contentBox video,
@@ -46,6 +48,13 @@ html {
 .contentBox video,
 .contentBox img {
     max-height: 31rem;
+}
+
+@media only screen and (max-height: 65rem) {
+    .contentBox video,
+    .contentBox img {
+        max-height: 30rem;
+    }
 }
 
 @media only screen and (max-width: 43rem) {
