@@ -43,6 +43,11 @@ html {
     height: auto; /* Maintain the aspect ratio */
 }
 
+.contentBox video,
+.contentBox img {
+    max-height: 31rem;
+}
+
 @media only screen and (max-width: 43rem) {
     .contentBox {
         max-width: 100%;
