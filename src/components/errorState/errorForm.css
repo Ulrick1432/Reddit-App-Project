@@ -1,13 +1,18 @@
 .errorFormContainer {
+  position: fixed;
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .errorForm {
   display: flex;
   flex-direction: column;
-  background-color: blueviolet;
+  background-color: lightblue;
   width: 41rem;
   padding: 1rem;
 }
