@@ -15,7 +15,7 @@ html {
 .contentBoxHeaderAndFooter {
     border: 0.3rem solid;
     border-color: rgb(27, 87, 84);
-    background-color: blueviolet;
+    background-color: rgb(255, 10, 10);
     display: flex;
     justify-content: space-evenly;
     padding-left: 1rem;
