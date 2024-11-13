@@ -3,8 +3,10 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: blueviolet;
+    background-color: var(--secondary-color);
     width: 100%;
+    border: 0.3rem solid black;
+    box-sizing: border-box;
 }
 
 .logo {

@@ -13,7 +13,7 @@
 .errorForm {
   display: flex;
   flex-direction: column;
-  background-color: lightblue;
+  background-color: var(--error-background);
   width: 41rem;
   padding: 1rem;
 }
